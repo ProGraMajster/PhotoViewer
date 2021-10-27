@@ -29,19 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Przeglądarka_zdjęć));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.closeButton = new System.Windows.Forms.Button();
-            this.backgroundButton = new System.Windows.Forms.Button();
-            this.clearButton = new System.Windows.Forms.Button();
-            this.showButton = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.otwórzWPomocnikProToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.otwórzToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,7 +59,6 @@
             this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informacjeOProgramieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelDol = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -74,20 +66,20 @@
             this.buttonZdjPoprze = new System.Windows.Forms.Button();
             this.panelGora = new System.Windows.Forms.Panel();
             this.panelFiles = new System.Windows.Forms.Panel();
+            this.textBoxInfoFile = new System.Windows.Forms.TextBox();
             this.panelLeft = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
-            this.textBoxInfoFile = new System.Windows.Forms.TextBox();
             this.buttonF_Open = new System.Windows.Forms.Button();
             this.panelOther = new System.Windows.Forms.Panel();
             this.buttonExitOther = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
+            this.buttonOdswiez = new System.Windows.Forms.Button();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelDol.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -95,78 +87,20 @@
             this.panelFiles.SuspendLayout();
             this.panelLeft.SuspendLayout();
             this.panelOther.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.flowLayoutPanel1.Controls.Add(this.closeButton);
-            this.flowLayoutPanel1.Controls.Add(this.backgroundButton);
-            this.flowLayoutPanel1.Controls.Add(this.clearButton);
-            this.flowLayoutPanel1.Controls.Add(this.showButton);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(906, 55);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1030, 55);
             this.flowLayoutPanel1.TabIndex = 1;
             this.flowLayoutPanel1.Tag = "MainePanel";
-            // 
-            // closeButton
-            // 
-            this.closeButton.Location = new System.Drawing.Point(3, 3);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(93, 23);
-            this.closeButton.TabIndex = 3;
-            this.closeButton.Text = "Zamknij program";
-            this.closeButton.UseVisualStyleBackColor = true;
-            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
-            // 
-            // backgroundButton
-            // 
-            this.backgroundButton.Location = new System.Drawing.Point(102, 3);
-            this.backgroundButton.Name = "backgroundButton";
-            this.backgroundButton.Size = new System.Drawing.Size(115, 23);
-            this.backgroundButton.TabIndex = 4;
-            this.backgroundButton.Text = "Ustaw kolor tła";
-            this.backgroundButton.UseVisualStyleBackColor = true;
-            this.backgroundButton.Click += new System.EventHandler(this.backgroundButton_Click);
-            // 
-            // clearButton
-            // 
-            this.clearButton.Location = new System.Drawing.Point(223, 3);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(121, 23);
-            this.clearButton.TabIndex = 1;
-            this.clearButton.Text = "Zamknij obraz";
-            this.toolTip1.SetToolTip(this.clearButton, "Zamyka plik");
-            this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
-            // 
-            // showButton
-            // 
-            this.showButton.ContextMenuStrip = this.contextMenuStrip1;
-            this.showButton.Location = new System.Drawing.Point(350, 3);
-            this.showButton.Name = "showButton";
-            this.showButton.Size = new System.Drawing.Size(108, 23);
-            this.showButton.TabIndex = 0;
-            this.showButton.Text = "Otwórz plik";
-            this.showButton.UseVisualStyleBackColor = true;
-            this.showButton.Click += new System.EventHandler(this.showButton_Click);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.otwórzWPomocnikProToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(200, 26);
-            // 
-            // otwórzWPomocnikProToolStripMenuItem
-            // 
-            this.otwórzWPomocnikProToolStripMenuItem.Name = "otwórzWPomocnikProToolStripMenuItem";
-            this.otwórzWPomocnikProToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.otwórzWPomocnikProToolStripMenuItem.Text = "Otwórz w PomocnikPro";
-            this.otwórzWPomocnikProToolStripMenuItem.Click += new System.EventHandler(this.otwórzWPomocnikProToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 
@@ -174,35 +108,6 @@
             this.openFileDialog1.Filter = "JPEG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png|BMP Files (*.bmp)|*.bmp|All file" +
     "s (*.*)|*.*";
             this.openFileDialog1.Title = "Wybierz plik obrazu";
-            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(0, 0);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(124, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Dopasuj zdjęcie";
-            this.toolTip1.SetToolTip(this.checkBox1, "Dopasuj obraz do rozmiaru okna pragramu");
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.Checked = true;
-            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.checkBox2.ForeColor = System.Drawing.Color.White;
-            this.checkBox2.Location = new System.Drawing.Point(0, 17);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(124, 22);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "Widok menu";
-            this.toolTip1.SetToolTip(this.checkBox2, "Widok menu");
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // menuStrip1
             // 
@@ -328,35 +233,35 @@
             // normalToolStripMenuItem
             // 
             this.normalToolStripMenuItem.Name = "normalToolStripMenuItem";
-            this.normalToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.normalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.normalToolStripMenuItem.Text = "Normal";
             this.normalToolStripMenuItem.Click += new System.EventHandler(this.normalToolStripMenuItem_Click);
             // 
             // stretchImageToolStripMenuItem
             // 
             this.stretchImageToolStripMenuItem.Name = "stretchImageToolStripMenuItem";
-            this.stretchImageToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.stretchImageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.stretchImageToolStripMenuItem.Text = "StretchImage";
             this.stretchImageToolStripMenuItem.Click += new System.EventHandler(this.stretchImageToolStripMenuItem_Click);
             // 
             // autoSizeToolStripMenuItem
             // 
             this.autoSizeToolStripMenuItem.Name = "autoSizeToolStripMenuItem";
-            this.autoSizeToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.autoSizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.autoSizeToolStripMenuItem.Text = "AutoSize";
             this.autoSizeToolStripMenuItem.Click += new System.EventHandler(this.autoSizeToolStripMenuItem_Click);
             // 
             // centerImageToolStripMenuItem
             // 
             this.centerImageToolStripMenuItem.Name = "centerImageToolStripMenuItem";
-            this.centerImageToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.centerImageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.centerImageToolStripMenuItem.Text = "CenterImage";
             this.centerImageToolStripMenuItem.Click += new System.EventHandler(this.centerImageToolStripMenuItem_Click);
             // 
             // zoomToolStripMenuItem
             // 
             this.zoomToolStripMenuItem.Name = "zoomToolStripMenuItem";
-            this.zoomToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.zoomToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.zoomToolStripMenuItem.Text = "Zoom";
             this.zoomToolStripMenuItem.Click += new System.EventHandler(this.zoomToolStripMenuItem_Click);
             // 
@@ -404,20 +309,10 @@
             // 
             this.panel2.Controls.Add(this.flowLayoutPanel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(124, 0);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(906, 55);
+            this.panel2.Size = new System.Drawing.Size(1030, 55);
             this.panel2.TabIndex = 5;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.checkBox2);
-            this.panel1.Controls.Add(this.checkBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(124, 55);
-            this.panel1.TabIndex = 2;
             // 
             // pictureBox1
             // 
@@ -435,7 +330,6 @@
             // panelDol
             // 
             this.panelDol.Controls.Add(this.panel2);
-            this.panelDol.Controls.Add(this.panel1);
             this.panelDol.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelDol.Location = new System.Drawing.Point(0, 481);
             this.panelDol.Name = "panelDol";
@@ -503,8 +397,9 @@
             // 
             // panelFiles
             // 
-            this.panelFiles.Controls.Add(this.panelLeft);
+            this.panelFiles.Controls.Add(this.buttonOdswiez);
             this.panelFiles.Controls.Add(this.textBoxInfoFile);
+            this.panelFiles.Controls.Add(this.panelLeft);
             this.panelFiles.Controls.Add(this.buttonF_Open);
             this.panelFiles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFiles.Location = new System.Drawing.Point(0, 0);
@@ -512,40 +407,56 @@
             this.panelFiles.Size = new System.Drawing.Size(1030, 536);
             this.panelFiles.TabIndex = 5;
             // 
+            // textBoxInfoFile
+            // 
+            this.textBoxInfoFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.textBoxInfoFile.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.textBoxInfoFile.ForeColor = System.Drawing.Color.White;
+            this.textBoxInfoFile.Location = new System.Drawing.Point(390, 384);
+            this.textBoxInfoFile.Multiline = true;
+            this.textBoxInfoFile.Name = "textBoxInfoFile";
+            this.textBoxInfoFile.ReadOnly = true;
+            this.textBoxInfoFile.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBoxInfoFile.Size = new System.Drawing.Size(640, 152);
+            this.textBoxInfoFile.TabIndex = 3;
+            // 
             // panelLeft
             // 
             this.panelLeft.Controls.Add(this.listView1);
+            this.panelLeft.Controls.Add(this.flowLayoutPanel2);
             this.panelLeft.Controls.Add(this.label1);
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeft.Location = new System.Drawing.Point(0, 0);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(414, 536);
+            this.panelLeft.Size = new System.Drawing.Size(390, 536);
             this.panelLeft.TabIndex = 4;
             // 
             // listView1
             // 
-            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1});
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.ForeColor = System.Drawing.Color.White;
+            this.listView1.ForeColor = System.Drawing.Color.Black;
+            listViewGroup1.Header = "ListViewGroup";
+            listViewGroup1.Name = "listViewGroup1";
+            this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup1});
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(0, 17);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.ShowGroups = false;
-            this.listView1.Size = new System.Drawing.Size(414, 519);
+            this.listView1.Size = new System.Drawing.Size(390, 519);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.View = System.Windows.Forms.View.SmallIcon;
             this.listView1.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listView1_ColumnClick);
             this.listView1.Click += new System.EventHandler(this.listView1_Click);
-            this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Nazwa";
-            this.columnHeader1.Width = 335;
+            this.columnHeader1.Width = 410;
             // 
             // label1
             // 
@@ -559,20 +470,11 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Podgląd folderu Zdjęcia";
             // 
-            // textBoxInfoFile
-            // 
-            this.textBoxInfoFile.Location = new System.Drawing.Point(420, 205);
-            this.textBoxInfoFile.Multiline = true;
-            this.textBoxInfoFile.Name = "textBoxInfoFile";
-            this.textBoxInfoFile.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxInfoFile.Size = new System.Drawing.Size(410, 317);
-            this.textBoxInfoFile.TabIndex = 3;
-            // 
             // buttonF_Open
             // 
             this.buttonF_Open.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonF_Open.ForeColor = System.Drawing.Color.White;
-            this.buttonF_Open.Location = new System.Drawing.Point(420, 12);
+            this.buttonF_Open.Location = new System.Drawing.Point(420, 17);
             this.buttonF_Open.Name = "buttonF_Open";
             this.buttonF_Open.Size = new System.Drawing.Size(132, 40);
             this.buttonF_Open.TabIndex = 2;
@@ -610,6 +512,38 @@
             this.webBrowser1.Size = new System.Drawing.Size(1030, 536);
             this.webBrowser1.TabIndex = 0;
             // 
+            // buttonOdswiez
+            // 
+            this.buttonOdswiez.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOdswiez.ForeColor = System.Drawing.Color.White;
+            this.buttonOdswiez.Location = new System.Drawing.Point(420, 81);
+            this.buttonOdswiez.Name = "buttonOdswiez";
+            this.buttonOdswiez.Size = new System.Drawing.Size(132, 40);
+            this.buttonOdswiez.TabIndex = 5;
+            this.buttonOdswiez.Text = "Odswież";
+            this.buttonOdswiez.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.pictureBox2);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 17);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(10);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(390, 519);
+            this.flowLayoutPanel2.TabIndex = 2;
+            this.flowLayoutPanel2.WrapContents = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(13, 13);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(365, 165);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
             // Przeglądarka_zdjęć
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -628,12 +562,9 @@
             this.Load += new System.EventHandler(this.Przeglądarka_zdjęć_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Przeglądarka_zdjęć_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Przeglądarka_zdjęć_KeyUp);
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelDol.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -644,21 +575,17 @@
             this.panelLeft.ResumeLayout(false);
             this.panelLeft.PerformLayout();
             this.panelOther.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button showButton;
-        private System.Windows.Forms.Button clearButton;
-        private System.Windows.Forms.Button closeButton;
-        private System.Windows.Forms.Button backgroundButton;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem otwórzWPomocnikProToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem plikToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem otwórzToolStripMenuItem;
@@ -679,9 +606,6 @@
         private System.Windows.Forms.ToolStripMenuItem centerImageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zoomToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ToolStripMenuItem tylkoZdjęcieToolStripMenuItem;
         private System.Windows.Forms.Panel panelDol;
@@ -702,6 +626,9 @@
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
         private System.Windows.Forms.Panel panelLeft;
+        private System.Windows.Forms.Button buttonOdswiez;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

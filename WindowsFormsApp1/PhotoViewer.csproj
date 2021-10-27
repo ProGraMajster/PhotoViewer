@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{0FA21C6C-3351-4CEB-BC80-FEB296221F01}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Przeglądarka_zdjęć</RootNamespace>
-    <AssemblyName>Przeglądarka_zdjęć</AssemblyName>
+    <RootNamespace>PhotoViewer</RootNamespace>
+    <AssemblyName>PhotoViewer</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -61,10 +61,11 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>WindowsFormsApp1.Program</StartupObject>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>application_icon_149973.ico</ApplicationIcon>

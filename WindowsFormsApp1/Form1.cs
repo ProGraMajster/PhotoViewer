@@ -18,53 +18,15 @@ namespace WindowsFormsApp1
         int zakrs_args;
         bool fullwindow = false;
 
-        string path_PomocnikPro;
-
         string path_to_file;
-        string[] fileArray;
 
         string floder_zdj;
 
         Image zdjecie;
+        Image imageP;
         public Przeglądarka_zdjęć()
         {
             InitializeComponent();
-            otwórzWPomocnikProToolStripMenuItem.Enabled = false;
-            string path;
-            
-
-            path = "C:\\Core-P\\App";
-            if (Directory.Exists(path))
-            {
-                FileStream fs12 = new FileStream("C:\\Core-P\\App\\" + Application.ProductName + ".txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-                try
-                {
-                    StreamWriter sw12 = new StreamWriter(fs12);
-                    sw12.WriteLine(args[0]);
-                    sw12.Close();
-                }
-                catch (Exception exs)
-                {
-                    MessageBox.Show(exs.ToString());
-                }
-            }
-
-            if (File.Exists("C:\\PlikiPomocnikPro\\skr.txt"))
-            {
-                FileStream fs = new FileStream("C:\\PlikiPomocnikPro\\skr.txt", FileMode.Open, FileAccess.Read, FileShare.Read);
-                try
-                {
-                    StreamReader sr = new StreamReader(fs);
-                    path_PomocnikPro = sr.ReadLine();
-                    sr.Close();
-                    otwórzWPomocnikProToolStripMenuItem.Enabled = true;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-            }
-
             ShowpanelFiles();
         }
 
@@ -86,99 +48,100 @@ namespace WindowsFormsApp1
             */
             System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures));
 
-            ListViewItem item;
-            listView1.BeginUpdate();
-            // For each file in the c:\ directory, create a ListViewItem
-            // and set the icon to the icon extracted from the file.
-            foreach (System.IO.FileInfo file in dir.GetFiles("*.png"))
-            {
-                // Set a default icon for the file.
-                Icon iconForFile ;
-
-                item = new ListViewItem(file.Name, 1);
-
-                // Check to see if the image collection contains an image
-                // for this extension, using the extension as a key.
-                if (!imageList1.Images.ContainsKey(file.Extension))
-                {
-                    // If not, add the image to the image list.
-                    iconForFile = Icon.ExtractAssociatedIcon(file.FullName);
-                    imageList1.Images.Add(file.Extension, iconForFile);
-                }
-                item.ImageKey = file.Extension;
-                listView1.Items.Add(item);
-            }
-
-            foreach (System.IO.FileInfo file in dir.GetFiles("*.bmp"))
-            {
-                // Set a default icon for the file.
-                Icon iconForFile;
-
-                item = new ListViewItem(file.Name, 1);
-
-                // Check to see if the image collection contains an image
-                // for this extension, using the extension as a key.
-                if (!imageList1.Images.ContainsKey(file.Extension))
-                {
-                    // If not, add the image to the image list.
-                    iconForFile = System.Drawing.Icon.ExtractAssociatedIcon(file.FullName);
-                    imageList1.Images.Add(file.Extension, iconForFile);
-                }
-                item.ImageKey = file.Extension;
-                listView1.Items.Add(item);
-            }
-
-            foreach (System.IO.FileInfo file in dir.GetFiles("*.jpg"))
-            {
-                // Set a default icon for the file.
-                Icon iconForFile;
-
-                item = new ListViewItem(file.Name, 1);
-
-                // Check to see if the image collection contains an image
-                // for this extension, using the extension as a key.
-                if (!imageList1.Images.ContainsKey(file.Extension))
-                {
-                    // If not, add the image to the image list.
-                    iconForFile = System.Drawing.Icon.ExtractAssociatedIcon(file.FullName);
-                    imageList1.Images.Add(file.Extension, iconForFile);
-                }
-                item.ImageKey = file.Extension;
-                listView1.Items.Add(item);
-            }
-
-            foreach (System.IO.FileInfo file in dir.GetFiles("*.jpeg"))
-            {
-                // Set a default icon for the file.
-                Icon iconForFile;
-
-                item = new ListViewItem(file.Name, 1);
-
-                // Check to see if the image collection contains an image
-                // for this extension, using the extension as a key.
-                if (!imageList1.Images.ContainsKey(file.Extension))
-                {
-                    // If not, add the image to the image list.
-                    iconForFile = System.Drawing.Icon.ExtractAssociatedIcon(file.FullName);
-                    imageList1.Images.Add(file.Extension, iconForFile);
-                }
-                item.ImageKey = file.Extension;
-                listView1.Items.Add(item);
-            }
-            listView1.EndUpdate();
-
+            
+            DirGetFile(dir);
+            dir = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
+            DirGetFile(dir);
+            string download = Environment.GetEnvironmentVariable("USERPROFILE") + @"\" + "Downloads";
+            dir = new DirectoryInfo(download);
+            DirGetFile(dir);
+            listView1.SmallImageList = imageList1;
             panelFiles.Visible = true;
             panelFiles.BringToFront();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        public void DirGetFile(System.IO.DirectoryInfo directory)
         {
+            ListViewGroup listViewGroup = new ListViewGroup();
+            listViewGroup.Header = directory.FullName;
+            listView1.Groups.Add(listViewGroup);
+            ListViewItem item;
+            // For each file in the c:\ directory, create a ListViewItem
+            // and set the icon to the icon extracted from the file.
+            foreach (System.IO.FileInfo file in directory.GetFiles("*.png"))
+            {
+                // Set a default icon for the file.
+                Image iconForFile;
+                // Check to see if the image collection contains an image
+                // for this extension, using the extension as a key.
+                if (!imageList1.Images.ContainsKey(file.Extension))
+                {
+                    // If not, add the image to the image list.
+                    iconForFile = System.Drawing.Image.FromFile(file.FullName);
+                    imageList1.Images.Add(file.Extension, iconForFile);
+                    item = new ListViewItem(file.Name, file.Extension, listViewGroup);
+                }
+                item = new ListViewItem(file.Name ,listViewGroup);
+                item.Tag = file.FullName;
+                item.ImageKey = file.Extension;
+                listViewGroup.ListView.Items.Add(item);
+            }
 
-        }
+            foreach (System.IO.FileInfo file in directory.GetFiles("*.bmp"))
+            {
+                // Set a default icon for the file.
+                Image iconForFile;
 
-        public void pliki_wtsf()
-        {
-            fileArray = Directory.GetFiles(@"c:\Dir\");
+                // Check to see if the image collection contains an image
+                // for this extension, using the extension as a key.
+                if (!imageList1.Images.ContainsKey(file.Extension))
+                {
+                    // If not, add the image to the image list.
+                    iconForFile = System.Drawing.Image.FromFile(file.FullName);
+                    imageList1.Images.Add(file.Extension, iconForFile);
+                }
+                item = new ListViewItem(file.Name, file.Extension, listViewGroup);
+                item.Tag = file.FullName;
+                item.ImageKey = file.Extension;
+                listViewGroup.ListView.Items.Add(item);
+            }
+
+            foreach (System.IO.FileInfo file in directory.GetFiles("*.jpg"))
+            {
+                // Set a default icon for the file.
+                Icon iconForFile;
+                // Check to see if the image collection contains an image
+                // for this extension, using the extension as a key.
+                if (!imageList1.Images.ContainsKey(file.Extension))
+                {
+                    // If not, add the image to the image list.
+                    iconForFile = System.Drawing.Icon.ExtractAssociatedIcon(file.FullName);
+                    imageList1.Images.Add(file.Extension, iconForFile);
+                }
+                item = new ListViewItem(file.Name, 1, listViewGroup);
+                item.Tag = file.FullName;
+                item.ImageKey = file.Extension;
+                listViewGroup.ListView.Items.Add(item);
+            }
+
+            foreach (System.IO.FileInfo file in directory.GetFiles("*.jpeg"))
+            {
+                // Set a default icon for the file.
+                Icon iconForFile;
+
+                // Check to see if the image collection contains an image
+                // for this extension, using the extension as a key.
+                if (!imageList1.Images.ContainsKey(file.Extension))
+                {
+                    // If not, add the image to the image list.
+                    iconForFile = System.Drawing.Icon.ExtractAssociatedIcon(file.FullName);
+                    imageList1.Images.Add(file.Extension, iconForFile);
+                }
+                item = new ListViewItem(file.Name, 1, listViewGroup);
+                item.Tag = file.FullName;
+                item.ImageKey = file.Extension;
+                listViewGroup.ListView.Items.Add(item);
+            }
         }
 
         private void showButton_Click(object sender, EventArgs e)
@@ -214,25 +177,6 @@ namespace WindowsFormsApp1
             panelFiles.Show();
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            // Jeśli użytkownik zaznaczy pole wyboru Rozciągnij,
-            // zmień PictureBox
-            // SizeMode na „Stretch”. Jeśli użytkownik wyczyści
-            // pole wyboru, zmień je na „Normalne”.
-            dopasujZdjęcieToolStripMenuItem.Checked = checkBox1.Checked;
-
-            if (checkBox1.Checked)
-                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            else
-                pictureBox1.SizeMode = PictureBoxSizeMode.Normal;
-        }
-
-        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
-        {
-            //
-        }
-
         bool stan_kl = false;
         private void Przeglądarka_zdjęć_KeyDown(object sender, KeyEventArgs e)
         {
@@ -266,37 +210,6 @@ namespace WindowsFormsApp1
             {
                 stan_kl = false;
             }
-        }
-
-        private void otwórzWPomocnikProToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string sciezkaapp = Path.Combine(path_PomocnikPro);
-                string pParams = @"-openimage";
-                Process program = new Process();
-                program.StartInfo.FileName = path_PomocnikPro;
-                program.StartInfo.Arguments = "/k " + " " + pParams;
-                try
-                {
-                    program.Start();
-                }
-                catch (Exception exp)
-                {
-                    MessageBox.Show(exp.Message);
-                }
-
-                //System.Diagnostics.Process.Start(path_PomocnikPro + " /openimage");
-            }
-            catch (Exception exf)
-            {
-                MessageBox.Show(exf.ToString());
-            }
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-            menuStrip1.Visible = checkBox2.Checked;
         }
 
         private void otwórzToolStripMenuItem_Click(object sender, EventArgs e)
@@ -405,7 +318,7 @@ namespace WindowsFormsApp1
 
         private void dopasujZdjęcieToolStripMenuItem_Click(object sender, EventArgs e)
         {
-             checkBox1.Checked = dopasujZdjęcieToolStripMenuItem.Checked;
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void stretchImageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -443,6 +356,7 @@ namespace WindowsFormsApp1
         {
             panelDol.Visible = true;
             panelGora.Visible = true;
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
         }
 
         int zdj_obr = 0;
@@ -493,7 +407,7 @@ namespace WindowsFormsApp1
             {
                 listView1.Sorting = SortOrder.Descending;
             }
-            else if (KlikC >= 3)
+            else if (KlikC > 2)
             {
                 listView1.Sorting = SortOrder.None;
                 KlikC = 0;
@@ -538,11 +452,18 @@ namespace WindowsFormsApp1
         {
             if(listView1.SelectedItems.Count > 0)
             {
-                string path = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
-                pictureBox1.Load(path + "\\" + listView1.SelectedItems[0].Text);
-                //MessageBox.Show(listView1.SelectedItems[0].Text);
-                panelFiles.Hide();
-                path_to_file = path;
+                try
+                {
+                    string path = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+                    pictureBox1.Load(listView1.SelectedItems[0].Tag.ToString());
+                    //MessageBox.Show(listView1.SelectedItems[0].Text);
+                    panelFiles.Hide();
+                    path_to_file = path;
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
         bool flag_Poprze = false;
