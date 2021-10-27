@@ -49,6 +49,7 @@
             this.informacjeOPlikuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.zamknijToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.widokToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maksymalizacjaOknaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minimalizacjaOknaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,19 +70,19 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelDol = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.buttonZdjNastep = new System.Windows.Forms.Button();
+            this.buttonZdjPoprze = new System.Windows.Forms.Button();
             this.panelGora = new System.Windows.Forms.Panel();
             this.panelFiles = new System.Windows.Forms.Panel();
-            this.textBoxInfoFile = new System.Windows.Forms.TextBox();
-            this.buttonF_Open = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.panelLeft = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.buttonZdjPoprze = new System.Windows.Forms.Button();
-            this.buttonZdjNastep = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxInfoFile = new System.Windows.Forms.TextBox();
+            this.buttonF_Open = new System.Windows.Forms.Button();
             this.panelOther = new System.Windows.Forms.Panel();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.buttonExitOther = new System.Windows.Forms.Button();
-            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.flowLayoutPanel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -92,6 +93,7 @@
             this.panel3.SuspendLayout();
             this.panelGora.SuspendLayout();
             this.panelFiles.SuspendLayout();
+            this.panelLeft.SuspendLayout();
             this.panelOther.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -263,6 +265,13 @@
             this.zamknijToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.zamknijToolStripMenuItem.Text = "Zamknij program";
             this.zamknijToolStripMenuItem.Click += new System.EventHandler(this.zamknijToolStripMenuItem_Click);
+            // 
+            // testToolStripMenuItem
+            // 
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.testToolStripMenuItem.Text = "Otwórz inaczej";
+            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
             // widokToolStripMenuItem
             // 
@@ -447,6 +456,40 @@
             this.panel3.Size = new System.Drawing.Size(1030, 536);
             this.panel3.TabIndex = 3;
             // 
+            // buttonZdjNastep
+            // 
+            this.buttonZdjNastep.BackColor = System.Drawing.Color.Transparent;
+            this.buttonZdjNastep.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonZdjNastep.FlatAppearance.BorderSize = 0;
+            this.buttonZdjNastep.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.buttonZdjNastep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonZdjNastep.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonZdjNastep.ForeColor = System.Drawing.Color.White;
+            this.buttonZdjNastep.Location = new System.Drawing.Point(981, 44);
+            this.buttonZdjNastep.Name = "buttonZdjNastep";
+            this.buttonZdjNastep.Size = new System.Drawing.Size(49, 437);
+            this.buttonZdjNastep.TabIndex = 6;
+            this.buttonZdjNastep.Text = ">";
+            this.buttonZdjNastep.UseVisualStyleBackColor = false;
+            this.buttonZdjNastep.Visible = false;
+            // 
+            // buttonZdjPoprze
+            // 
+            this.buttonZdjPoprze.BackColor = System.Drawing.Color.Transparent;
+            this.buttonZdjPoprze.Dock = System.Windows.Forms.DockStyle.Left;
+            this.buttonZdjPoprze.FlatAppearance.BorderSize = 0;
+            this.buttonZdjPoprze.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.buttonZdjPoprze.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonZdjPoprze.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonZdjPoprze.ForeColor = System.Drawing.Color.White;
+            this.buttonZdjPoprze.Location = new System.Drawing.Point(0, 44);
+            this.buttonZdjPoprze.Name = "buttonZdjPoprze";
+            this.buttonZdjPoprze.Size = new System.Drawing.Size(49, 437);
+            this.buttonZdjPoprze.TabIndex = 5;
+            this.buttonZdjPoprze.Text = "<";
+            this.buttonZdjPoprze.UseVisualStyleBackColor = false;
+            this.buttonZdjPoprze.Visible = false;
+            // 
             // panelGora
             // 
             this.panelGora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -460,15 +503,61 @@
             // 
             // panelFiles
             // 
+            this.panelFiles.Controls.Add(this.panelLeft);
             this.panelFiles.Controls.Add(this.textBoxInfoFile);
             this.panelFiles.Controls.Add(this.buttonF_Open);
-            this.panelFiles.Controls.Add(this.label1);
-            this.panelFiles.Controls.Add(this.listView1);
             this.panelFiles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFiles.Location = new System.Drawing.Point(0, 0);
             this.panelFiles.Name = "panelFiles";
             this.panelFiles.Size = new System.Drawing.Size(1030, 536);
             this.panelFiles.TabIndex = 5;
+            // 
+            // panelLeft
+            // 
+            this.panelLeft.Controls.Add(this.listView1);
+            this.panelLeft.Controls.Add(this.label1);
+            this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelLeft.Location = new System.Drawing.Point(0, 0);
+            this.panelLeft.Name = "panelLeft";
+            this.panelLeft.Size = new System.Drawing.Size(414, 536);
+            this.panelLeft.TabIndex = 4;
+            // 
+            // listView1
+            // 
+            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.ForeColor = System.Drawing.Color.White;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(0, 17);
+            this.listView1.MultiSelect = false;
+            this.listView1.Name = "listView1";
+            this.listView1.ShowGroups = false;
+            this.listView1.Size = new System.Drawing.Size(414, 519);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listView1_ColumnClick);
+            this.listView1.Click += new System.EventHandler(this.listView1_Click);
+            this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Nazwa";
+            this.columnHeader1.Width = 335;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(158, 17);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Podgląd folderu Zdjęcia";
             // 
             // textBoxInfoFile
             // 
@@ -491,75 +580,6 @@
             this.buttonF_Open.UseVisualStyleBackColor = true;
             this.buttonF_Open.Click += new System.EventHandler(this.buttonF_Open_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Podgląd folderu Zdjęcia";
-            // 
-            // listView1
-            // 
-            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1});
-            this.listView1.ForeColor = System.Drawing.Color.White;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(3, 26);
-            this.listView1.MultiSelect = false;
-            this.listView1.Name = "listView1";
-            this.listView1.ShowGroups = false;
-            this.listView1.Size = new System.Drawing.Size(401, 496);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listView1_ColumnClick);
-            this.listView1.Click += new System.EventHandler(this.listView1_Click);
-            this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Nazwa";
-            this.columnHeader1.Width = 335;
-            // 
-            // buttonZdjPoprze
-            // 
-            this.buttonZdjPoprze.BackColor = System.Drawing.Color.Transparent;
-            this.buttonZdjPoprze.Dock = System.Windows.Forms.DockStyle.Left;
-            this.buttonZdjPoprze.FlatAppearance.BorderSize = 0;
-            this.buttonZdjPoprze.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.buttonZdjPoprze.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonZdjPoprze.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonZdjPoprze.ForeColor = System.Drawing.Color.White;
-            this.buttonZdjPoprze.Location = new System.Drawing.Point(0, 44);
-            this.buttonZdjPoprze.Name = "buttonZdjPoprze";
-            this.buttonZdjPoprze.Size = new System.Drawing.Size(49, 437);
-            this.buttonZdjPoprze.TabIndex = 5;
-            this.buttonZdjPoprze.Text = "<";
-            this.buttonZdjPoprze.UseVisualStyleBackColor = false;
-            this.buttonZdjPoprze.Visible = false;
-            // 
-            // buttonZdjNastep
-            // 
-            this.buttonZdjNastep.BackColor = System.Drawing.Color.Transparent;
-            this.buttonZdjNastep.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonZdjNastep.FlatAppearance.BorderSize = 0;
-            this.buttonZdjNastep.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.buttonZdjNastep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonZdjNastep.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonZdjNastep.ForeColor = System.Drawing.Color.White;
-            this.buttonZdjNastep.Location = new System.Drawing.Point(981, 44);
-            this.buttonZdjNastep.Name = "buttonZdjNastep";
-            this.buttonZdjNastep.Size = new System.Drawing.Size(49, 437);
-            this.buttonZdjNastep.TabIndex = 6;
-            this.buttonZdjNastep.Text = ">";
-            this.buttonZdjNastep.UseVisualStyleBackColor = false;
-            this.buttonZdjNastep.Visible = false;
-            // 
             // panelOther
             // 
             this.panelOther.Controls.Add(this.buttonExitOther);
@@ -569,15 +589,6 @@
             this.panelOther.Name = "panelOther";
             this.panelOther.Size = new System.Drawing.Size(1030, 536);
             this.panelOther.TabIndex = 5;
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(1030, 536);
-            this.webBrowser1.TabIndex = 0;
             // 
             // buttonExitOther
             // 
@@ -590,12 +601,14 @@
             this.buttonExitOther.UseVisualStyleBackColor = true;
             this.buttonExitOther.Click += new System.EventHandler(this.buttonExitOther_Click);
             // 
-            // testToolStripMenuItem
+            // webBrowser1
             // 
-            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.testToolStripMenuItem.Text = "Otwórz inaczej";
-            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(1030, 536);
+            this.webBrowser1.TabIndex = 0;
             // 
             // Przeglądarka_zdjęć
             // 
@@ -603,9 +616,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(1030, 536);
+            this.Controls.Add(this.panelFiles);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panelOther);
-            this.Controls.Add(this.panelFiles);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
@@ -628,6 +641,8 @@
             this.panelGora.PerformLayout();
             this.panelFiles.ResumeLayout(false);
             this.panelFiles.PerformLayout();
+            this.panelLeft.ResumeLayout(false);
+            this.panelLeft.PerformLayout();
             this.panelOther.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -686,6 +701,7 @@
         private System.Windows.Forms.Button buttonExitOther;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
+        private System.Windows.Forms.Panel panelLeft;
     }
 }
 

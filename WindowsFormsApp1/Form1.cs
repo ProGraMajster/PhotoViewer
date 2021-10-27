@@ -349,6 +349,7 @@ namespace WindowsFormsApp1
                 {
                     pictureBox1.Load(args[1]);
                     path_to_file = args[1];
+                    panel3.BringToFront();
                 }
             }
 
@@ -360,6 +361,7 @@ namespace WindowsFormsApp1
                     {
                         pictureBox1.Load(openFileDialog1.FileName);
                         path_to_file = openFileDialog1.FileName;
+                        panel3.BringToFront();
                     }
                 }
                 else if (args[2].EndsWith("-max"))
@@ -510,7 +512,26 @@ namespace WindowsFormsApp1
 
         private void listView1_Click(object sender, EventArgs e)
         {
-           
+            try
+            {
+                string path = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+                path += "\\" + listView1.SelectedItems[0].Text;
+                textBoxInfoFile.Text = "";
+                FileInfo finfo = new FileInfo(path);
+                textBoxInfoFile.Text += finfo.Name + Environment.NewLine;
+                textBoxInfoFile.Text += finfo.FullName + Environment.NewLine;
+                textBoxInfoFile.Text += finfo.Extension + Environment.NewLine;
+                textBoxInfoFile.Text += finfo.DirectoryName + Environment.NewLine;
+                textBoxInfoFile.Text += finfo.Directory + Environment.NewLine;
+                textBoxInfoFile.Text += finfo.Attributes.ToString() + Environment.NewLine;
+                textBoxInfoFile.Text += finfo.CreationTime.ToString() + Environment.NewLine;
+                textBoxInfoFile.Text += finfo.CreationTimeUtc + Environment.NewLine;
+                textBoxInfoFile.Text += finfo.LastAccessTime + Environment.NewLine;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void buttonF_Open_Click(object sender, EventArgs e)
